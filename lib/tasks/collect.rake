@@ -1,23 +1,25 @@
 require 'csv'
-namespace :collect do
-  task :pull_csv => :environment do
-    csv = CSV.read("./lib/builds/duelist.csv")
-    csv.each do |line|
-      if Build.where(url: line[1]).first
-        new_build = Build.find_by(url: line[1])
-        new_build.views = line[3] unless line[3].nil?
-        new_build.date = line[4] unless line[4].nil?
-      else
-        new_build = Build.new
-        new_build.author = Author.new(name: line[2])
-        new_build.title = line[0]
-        new_build.url = line[1]
-        new_build.char = 1
-        new_build.views = line[3] unless line[3].nil?
-        new_build.date = line[4] unless line[4].nil?
-      end
+require './lib/helpers/skills_helper.rb'
+require './lib/helpers/scrape_helper.rb'
+include SkillsHelper
+include ScrapeHelper
 
-      new_build.save
+namespace :collect do
+
+  task :pull_csv => :environment do
+    class_hash = {"duelist" => 1, "marauder" => 2, "ranger" => 3, "scion" => 4,
+                  "shadow" => 5, "templar" => 6, "witch" => 7}
+
+    class_hash.each do |class_name, class_value|
+      file_name = "./lib/builds/%s.csv" % class_name
+      if File.exist?(file_name)
+        pull_builds(file_name, class_value)
+      end
     end
+  end
+
+  task :pull_forums => :environment do
+    s = POEScraper.new
+    s.parse_forums
   end
 end
