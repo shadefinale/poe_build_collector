@@ -1,11 +1,3 @@
-<%= link_to "Duelist", builds_path(char: 1) %>
-<%= link_to "Marauder", builds_path(char: 2) %>
-<%= link_to "Ranger", builds_path(char: 3) %>
-<%= link_to "Scion", builds_path(char: 4) %>
-<%= link_to "Shadow", builds_path(char: 5) %>
-<%= link_to "Templar", builds_path(char: 6) %>
-<%= link_to "Witch", builds_path(char: 7) %>
-<%= link_to "All", builds_path %>
 <% @builds.each do |hash| %>
   <% hash.each do |skill, builds| %>
   	<h1> <%= skill unless builds.length == 0%> </h1>
