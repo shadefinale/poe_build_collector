@@ -1,0 +1,10 @@
+<h1> <%=@author.name %> </h1>
+
+<h2> Indexed builds </h2>
+<ul>
+	<% @author.builds.each do |build| %>
+		<li><%= link_to build.title, build.url %></li>
+	<% end %>
+</ul>
+
+<%= link_to "Back to List of authors", authors_path %>

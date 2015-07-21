@@ -2,7 +2,9 @@
   <% hash.each do |skill, builds| %>
   	<h1> <%= skill unless builds.length == 0%> </h1>
   	<% builds.each do |build| %>
-  	  <li><%= link_to build.title, build.url %></li>
+  	  <li><%= link_to build.title, build.url %> by: <%= link_to build.author.name, build.author %></li>
   	<% end %>
   <% end %>
 <% end %>
+<br>
+<%= @builds.length %> indexed Builds with Skill name in title.
