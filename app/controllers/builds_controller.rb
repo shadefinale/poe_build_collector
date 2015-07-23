@@ -1,28 +1,19 @@
 class BuildsController < ApplicationController
   def index
-    @builds = builds_by_skill
-    if params[:char]
-      @builds = builds_by_char(@builds, params[:char])
-    end
+    @skills, @builds = builds_by_skill(params[:char])
   end
 
 
   private
-    def builds_by_skill
-      builds = []
-      Skill.all.each do |skill|
-        skill_list = {}
-        skill_builds = []
-        skill.builds.each do |build|
-          skill_builds << build
-        end
-        skill_list[skill.name] = skill_builds
-        builds << skill_list
+    def builds_by_skill(char=nil)
+      skills = Skill.joins(:builds).group('skills.name')
+      builds = {}
+      if char
+        skills.each{|skill| builds[skill] = Build.where(skill_id: skill.id, char: char)}
+      else
+        skills.each{|skill| builds[skill] = Build.where(skill_id: skill.id)}
       end
-      builds.sort_by{|skill| skill.keys}
+      return skills, builds
     end
 
-    def builds_by_char(build_list, char)
-      return build_list.each{|skill| skill.values.each{|builds| builds.select!{|build| build.char == char.to_i}}}
-    end
 end

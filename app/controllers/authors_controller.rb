@@ -1,6 +1,6 @@
 class AuthorsController < ApplicationController
   def index
-    @authors = Author.all.sort_by{|author| author.builds.length}.reverse
+    @authors = Author.joins(:builds).group("builds.author_id").order("count(builds.author_id) desc")
   end
 
   def show
