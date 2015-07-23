@@ -1,7 +1,7 @@
 <% @skills.each do |skill| %>
-  	<h1> <%= skill.name unless @builds[skill].empty? %> </h1>
-  	<% @builds[skill].each do |build| %>
-  	<li><%= link_to build.title, build.url %> by: <%= link_to build.author.name, build.author %><%= build.char %></li>
+  	<h1> <%= skill.name %> </h1>
+  	<% skill.builds.each do |build|%>
+  		<li><%= link_to build.title, build.url %> by: <%= link_to build.author.name, build.author %></li>
   	<% end %>
 <% end %>
 <br>
