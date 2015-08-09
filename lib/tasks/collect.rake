@@ -22,4 +22,8 @@ namespace :collect do
     s = POEScraper.new
     s.parse_forums
   end
+
+  task :fix_skill_names, [:skill] => :environment do |task, args|
+    recategorize_builds(args.skill)
+  end
 end

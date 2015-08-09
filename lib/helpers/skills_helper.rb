@@ -1,8 +1,8 @@
 module SkillsHelper
   SKILLS = {[/(\W|^)animate guardian/] => "Animate Guardian",
   [/(\W|^)animate weapon/] => "Animate Weapon",
-  [/(\W|^)arc/] => "Arc",
   [/(\W|^)arctic breath/] => "Arctic Breath",
+  [/(\W|^)arc/] => "Arc",
   [/(\W|^)ball lightning/] => "Ball Lightning",
   [/(\W|^)barrage/] => "Barrage",
   [/(\W|^)bear trap/] => "Bear Trap",
@@ -90,6 +90,21 @@ module SkillsHelper
       search_title_for_skill(build.title, build)
       build.char = class_value
       build.save
+    end
+  end
+
+  def recategorize_builds(skill_name)
+    builds = Build.where(skill: Skill.find_by_name(skill_name))
+    builds.each do |build|
+      SKILLS.each do |regex_arr, name|
+        if build.title.downcase.match(Regexp.union(regex_arr))
+          p name
+          new_skill = Skill.find_or_create_by(name: name)
+          build.update!(skill: new_skill)
+          break
+        end
+        p build.skill.name
+      end
     end
   end
 end
