@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20150717031952) do
   create_table "builds", force: :cascade do |t|
     t.string   "title"
     t.string   "url"
-    t.date     "posted_date", default: '2015-07-17'
+    t.date     "posted_date", default: '2015-10-04'
     t.integer  "replies",     default: 0
     t.integer  "char"
     t.integer  "author_id"

@@ -3,7 +3,8 @@ FactoryGirl.define do
     sequence(:title) { |n|  "My awesome build #{n}" }
     sequence(:url) { |n| "awesome/build/#{n}" }
     replies 0
-    sequence(:char) { |n| n % 7 + 1}
+    posted_date Time.now
+    sequence(:char) { |n| (n % 7) }
     author
     skill
   end
