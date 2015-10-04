@@ -1,13 +1,13 @@
 class BuildsController < ApplicationController
   def index
-    @skills = builds_by_skill(params[:char].to_i)
-  end
-
-
-  private
-    def builds_by_skill(char=nil)
-      char = nil unless (1..7).include? char
-      char.nil? ? Skill.includes(:builds).order(:name) : Skill.joins(:builds).includes(:builds).where('builds.char = ?', char.to_i).order("skills.name")
+    if params[:char] && (1..7).include?(params[:char].to_i)
+      @builds = Build.includes(:skills).where(char: params[:char].to_i)
+    else
+      @builds = Build.includes(:skills)
     end
-
+    binding.pry
+    respond_to do |format|
+      format.json { render json: @builds }
+    end
+  end
 end
