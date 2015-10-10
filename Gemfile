@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem "bower-rails", "~> 0.10.0"
 gem 'angularjs-rails'
 gem 'mechanize'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
