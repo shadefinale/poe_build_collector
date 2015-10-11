@@ -13,4 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require angular
+//= require mobile-angular-ui/dist/js/mobile-angular-ui
+//= require lodash/lodash
+//= require restangular/src/restangular
 //= require_tree .
