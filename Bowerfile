@@ -3,4 +3,4 @@
 
 # asset 'bootstrap'
 asset 'restangular'
-asset 'mobile-angular-ui', git@github.com:mcasimir/mobile-angular-ui.git'
+asset 'mobile-angular-ui', 'git@github.com:mcasimir/mobile-angular-ui.git'
