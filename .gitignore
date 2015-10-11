@@ -11,6 +11,8 @@
 /db/*.sqlite3
 /db/*.sqlite3-journal
 
+./vendor/assets/bower_components/*
+
 # Ignore all logfiles and tempfiles.
 /log/*
 !/log/.keep
