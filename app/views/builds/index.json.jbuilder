@@ -1,4 +1,4 @@
-json.builds @builds do |build|
+json.array! @builds do |build|
   json.title build.title
   json.id build.id
   json.url build.url

@@ -13,7 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require angular
-//= require mobile-angular-ui/dist/js/mobile-angular-ui
+//= require angular-filter/dist/angular-filter
+//= require angular-ui-router/release/angular-ui-router
 //= require lodash/lodash
 //= require restangular/src/restangular
+//= require mobile-angular-ui/dist/js/mobile-angular-ui
 //= require_tree .

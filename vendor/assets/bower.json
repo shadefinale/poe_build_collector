@@ -2,6 +2,8 @@
   "name": "dsl-generated dependencies",
   "dependencies": {
     "restangular": "latest",
+    "angular-ui-router": "latest",
+    "angular-filter": "latest",
     "mobile-angular-ui": "git@github.com:mcasimir/mobile-angular-ui.git"
   }
 }

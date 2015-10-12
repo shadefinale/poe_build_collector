@@ -3,4 +3,6 @@
 
 # asset 'bootstrap'
 asset 'restangular'
+asset 'angular-ui-router'
+asset 'angular-filter'
 asset 'mobile-angular-ui', 'git@github.com:mcasimir/mobile-angular-ui.git'
