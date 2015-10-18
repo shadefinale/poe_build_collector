@@ -5,4 +5,5 @@
 asset 'restangular'
 asset 'angular-ui-router'
 asset 'angular-filter'
+asset 'angular-ui-bootstrap-bower'
 asset 'mobile-angular-ui', 'git@github.com:mcasimir/mobile-angular-ui.git'

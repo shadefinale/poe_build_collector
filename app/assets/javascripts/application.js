@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require angular
+//= require angular-ui-bootstrap-bower/ui-bootstrap-tpls
 //= require angular-filter/dist/angular-filter
 //= require angular-ui-router/release/angular-ui-router
 //= require lodash/lodash

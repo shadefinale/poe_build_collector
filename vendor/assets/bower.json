@@ -4,6 +4,7 @@
     "restangular": "latest",
     "angular-ui-router": "latest",
     "angular-filter": "latest",
+    "angular-ui-bootstrap-bower": "latest",
     "mobile-angular-ui": "git@github.com:mcasimir/mobile-angular-ui.git"
   }
 }

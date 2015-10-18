@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp', ["mobile-angular-ui", "ui.router", "restangular", 'angular.filter']);
+var myApp = angular.module('myApp', ["mobile-angular-ui", "ui.router", "restangular", 'angular.filter', "ui.bootstrap"]);
 
 myApp.config(['RestangularProvider', function(RestangularProvider){
   RestangularProvider.setRequestSuffix(".json")

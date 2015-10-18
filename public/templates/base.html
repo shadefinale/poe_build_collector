@@ -1,19 +1,16 @@
 <div class="scrollable">
+
   <div class="scrollable-content">
-    <div class="panel-group text-center" ui-state='skillAccordion' ui-default='Arc'>
-      <div class='panel panel-default' ng-repeat="(skill, builds_for_skill) in builds | orderBy: '+skill' | groupBy: 'skill'">
-        <div class='panel-title' ui-set="{'skillAccordion': skill}">
-          <h3 class="home-heading text-left">{{skill == 'none' ? 'No Skill in Title' : skill}}</h3>
-        </div>
-        <div ui-if="skillAccordion == '{{ skill }}'">
-          <div class='panel-body'>
-            <div ng-repeat="build in builds_for_skill" class="text-left">
-                <h3 class="home-heading"><a href="{{ build.url }}">{{ build.title }}</a></h3>
+
+    <uib-accordion close-others="true" heading="test">
+      <uib-accordion-group heading="{{skill == 'none' ? 'No Parsed Skill in Title' : skill}} ({{builds_for_skill.length}})" ng-repeat="(skill, builds_for_skill) in builds | selectedChars: chars | orderBy: '+skill' | groupBy: 'skill'">
+        <div ng-repeat="build in builds_for_skill">
+          <h3 class="home-heading"><a href="{{ build.url }}">{{ build.title }}</a></h3>
                 {{ build.char }} {{ build.author.name }}
-            </div>
-          </div>
         </div>
-      </div>
-    </div>
+      </uib-accordion-group>
+    </uib-accordion>
+
   </div>
+
 </div>
