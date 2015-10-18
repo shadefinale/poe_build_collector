@@ -1,5 +1,5 @@
-myApp.controller('baseCtrl', ['$scope', 'Builds', 'Filter', function($scope, Builds, Filter){
+myApp.controller('baseCtrl', ['$scope', 'Builds', 'Chars', function($scope, Builds, Chars){
   $scope.builds = Builds.builds;
-  $scope.chars = Filter.chars;
+  $scope.chars = Chars.selected;
   console.log($scope.builds);
 }])
