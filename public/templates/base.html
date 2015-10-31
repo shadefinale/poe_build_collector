@@ -6,7 +6,7 @@
       <uib-accordion-group heading="{{skill == 'none' ? 'No Parsed Skill in Title' : skill}} ({{builds_for_skill.length}})" ng-repeat="(skill, builds_for_skill) in builds | selectedChars: chars | orderBy: '+skill' | groupBy: 'skill'">
         <div ng-repeat="build in builds_for_skill">
           <h3 class="home-heading"><a href="{{ build.url }}">{{ build.title }}</a></h3>
-                {{ build.char }} {{ build.author.name }}
+                {{ build.char | characterClass }} | By {{ build.author.name }}
         </div>
       </uib-accordion-group>
     </uib-accordion>
