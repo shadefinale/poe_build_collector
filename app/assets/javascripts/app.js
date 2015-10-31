@@ -14,6 +14,11 @@ myApp.config(['RestangularProvider', function(RestangularProvider){
         templateUrl: 'templates/base.html',
         controller: 'baseCtrl'
       })
+      .state('/authors', {
+        url: '/authors',
+        templateUrl: 'templates/authors.html',
+        controller: 'baseCtrl'
+      })
       // .state('/filter', {
       //   url: '/filter',
       //   templateUrl: 'templates/filter.html',
@@ -24,8 +29,8 @@ myApp.config(['RestangularProvider', function(RestangularProvider){
       //   templateUrl: 'templates/authors.html',
       //   controller: 'authorsCtrl'
       // })
-      // .state('/author', {
-      //   url: '/author/:id'
+      // .state('/authors', {
+      //   url: '/authors/:id'
       //   templateUrl: 'templates/author.html',
       //   controller: 'authorCtrl',
       // })

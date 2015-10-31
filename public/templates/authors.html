@@ -1,0 +1,17 @@
+<div class="scrollable">
+
+  <div class="scrollable-content">
+
+    <uib-accordion close-others="true" heading="test">
+    <uib-accordion-group heading="{{author}} ({{builds_by_author.length}})" ng-repeat="(author, builds_by_author) in builds | selectedChars: chars | orderBy: '+author.name' | groupBy : 'author.name' ">
+        <div ng-repeat="build in builds_by_author">
+          <h3 class="home-heading"><a href="{{ build.url }}">{{ build.title }}</a></h3>
+                {{ build.char }}         
+        </div>
+      </uib-accordion-group>
+    </uib-accordion>
+
+  </div>
+
+</div>
+
