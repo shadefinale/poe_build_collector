@@ -14,7 +14,7 @@ module ScrapeHelper
       ]
 
     # If the thread contains one of these words we assume it is not a guide.
-    @@banned_words = ["help", "question", "input", "someone", "?", "theorycraft", "1.3", "discussion", "advice"]
+    @@banned_words = ["help", "question", "input", "someone", "?", "theorycraft", "1.3", "2.0", "discussion", "advice"]
 
     def initialize
       @agent = Mechanize.new
@@ -74,7 +74,7 @@ module ScrapeHelper
     end
 
     def get_relevant_threads(threads)
-      threads.select {|thread| thread.search(".title").text.include? ("2.0")}
+      threads.select {|thread| thread.search(".title").text.include? ("2.1")}
     end
 
     def remove_irrelevant_threads(threads)
